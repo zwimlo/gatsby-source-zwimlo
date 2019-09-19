@@ -1,0 +1,67 @@
+# Ignore general stuff, e.g. Eclipse, Mac OS X 
+#     This section should be used within all projects.
+
+._*
+
+.classpath
+.buildpath
+.DS_Store
+.DS_Store?
+.idea
+.metadata
+.mtj.tmp/ # Mobile Tools for Java (J2ME)
+.project
+.settings
+.Spotlight-V100
+.svn
+.Trashes
+
+*~
+*~*
+*#
+*.bak
+*.ear
+*.iml
+*.ipr
+*.jar
+*.log
+*.pyc
+*.pyo
+*.spool
+*.sqlite
+*.swp
+*.war
+*.working
+
+desktop.ini
+ehthumbs.db
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid* 
+[Tt]humbs.db
+
+
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+node_modules/
