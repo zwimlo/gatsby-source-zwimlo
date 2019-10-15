@@ -1,5 +1,5 @@
 # gatsby-source-zwimlo
-Plugin for creating [GatsbyJS](https://gatsbyjs.org){:target="_blank"} content and asset nodes based on [zwimlo](https://zwimlo.io){:target="_blank"} as a data source. It retrieves data from delivery or preview based on the configuration settings in your gatsby-config.js.
+Plugin for creating [GatsbyJS](https://gatsbyjs.org) content and asset nodes based on [zwimlo](https://zwimlo.io) as a data source. It retrieves data from delivery or preview based on the configuration settings in your gatsby-config.js.
 
 ## Install
 with yarn  
