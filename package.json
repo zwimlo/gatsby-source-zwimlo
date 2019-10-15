@@ -56,6 +56,6 @@
     "babel-register": "^6.26.0",
     "husky": "^3.0.9",
     "prettier": "^1.14.3",
-    "semantic-release": "^16.0.0-beta26"
+    "semantic-release": "16.0.0-beta.26"
   }
 }
