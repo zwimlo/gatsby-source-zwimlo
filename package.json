@@ -5,7 +5,7 @@
   "scripts": {
     "build": "babel src --out-dir .",
     "format": "prettier --trailing-comma all --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\"",
+    "test": "mocha --require @babel/register 'src/**/**spec.js'",
     "watch": "babel -w src --out-dir .",
     "release": "npx semantic-release --debug"
   },
@@ -42,6 +42,7 @@
     "pluralize": "^7.0.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.6.2",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/commit-analyzer": "^6.3.0",
     "@semantic-release/git": "^7.0.16",
@@ -55,6 +56,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "husky": "^3.0.9",
+    "mocha": "^6.2.1",
     "prettier": "^1.14.3",
     "semantic-release": "16.0.0-beta.26"
   }
