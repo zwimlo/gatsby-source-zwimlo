@@ -6,9 +6,9 @@
 ############################
 #     Put you project specific stuff here but review the sections below first !!!
 
-./fetch.js
-./gatsby-node.s
-./normalize.js
+fetch.js
+gatsby-node.js
+normalize.js
 
 
 # Quick commands for working with ignores #

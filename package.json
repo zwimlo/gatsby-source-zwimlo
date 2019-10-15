@@ -3,7 +3,6 @@
   "version": "0.3.2",
   "description": "Creates Gatsby nodes based on zwimlo API data",
   "scripts": {
-    "prepublish": "npm run build",
     "build": "babel src --out-dir .",
     "format": "prettier --trailing-comma all --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,11 +18,9 @@
   ],
   "author": "Harald T. Wirths <harald@zwimlo.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
   "dependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "axios": "~0.18.0",
     "chalk": "^2.4.1",
     "crypto": "^1.0.1",
@@ -34,12 +31,20 @@
     "pluralize": "^7.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/github": "^5.5.3",
+    "@semantic-release/npm": "^5.2.0",
+    "@semantic-release/release-notes-generator": "^7.3.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "prettier": "^1.14.3"
+    "husky": "^3.0.9",
+    "prettier": "^1.14.3",
+    "semantic-release": "^15.13.24"
   }
 }
