@@ -20,6 +20,8 @@ jobs:
       - run: npm install -g babel-cli
       - run: npm run build
       - run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
 
   publish-npm:
     needs: build
