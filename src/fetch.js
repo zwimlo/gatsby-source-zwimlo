@@ -30,7 +30,7 @@ export default async ({
   }
 }
 
-// Tx to https://github.com/steniowagner @  https://github.com/axios/axios/issues/604
+// Tx to https://github.com/steniowagner @ https://github.com/axios/axios/issues/604
 //  used for refDetails
 const parseParams = params => {
   const keys = Object.keys(params)
