@@ -5,8 +5,9 @@
   "scripts": {
     "build": "babel src --out-dir .",
     "format": "prettier --trailing-comma all --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "babel -w src --out-dir ."
+    "test": "echo \"Error: no test specified\"",
+    "watch": "babel -w src --out-dir .",
+    "release": "npx semantic-release --debug"
   },
   "main": "index.js",
   "homepage": "https://www.zwimlo.com",
@@ -18,6 +19,16 @@
   ],
   "author": "Harald T. Wirths <harald@zwimlo.com>",
   "license": "MIT",
+  "release": {
+    "repositoryUrl": "https://github.com/zwimlo/gatsby-source-zwimlo.git",
+    "plugins": [
+      "@semantic-release/changelog",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/git",
+      "@semantic-release/github",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
   "dependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
