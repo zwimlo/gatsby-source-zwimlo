@@ -10,7 +10,7 @@
     "release": "npx semantic-release --debug"
   },
   "main": "index.js",
-  "homepage": "https://www.zwimlo.com",
+  "homepage": "https://zwimlo.io",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -20,7 +20,7 @@
   "author": "Harald T. Wirths <harald@zwimlo.com>",
   "license": "MIT",
   "release": {
-    "repositoryUrl": "https://@github.com/zwimlo/gatsby-source-zwimlo.git",
+    "repositoryUrl": "https://github.com/zwimlo/gatsby-source-zwimlo.git",
     "plugins": [
       "@semantic-release/changelog",
       "@semantic-release/commit-analyzer",
