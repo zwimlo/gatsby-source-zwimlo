@@ -4,7 +4,6 @@ import deepMapKeys from 'deep-map-keys'
 const prefixForGatsbyKey = 'zwimlo_'
 const restrictedNodeFields = ['id', 'fields', 'parent', 'children', 'internal']
 
-
 /**
  * Validate the GraphQL naming convetions & protect specific fields.
  *
@@ -31,12 +30,21 @@ const getValidKeyName = (key, verbose) => {
     newKey = `${prefixForGatsbyKey}${newKey}`.replace(/-|__|:|\$|\.|\s/g, '_')
   }
 
-  {(replaced && verbose) && console.log(`${chalk.magentaBright('zwimlo')} offending key: ${key} replaced by ${newKey}`)}
+  {
+    replaced &&
+      verbose &&
+      console.log(
+        `${chalk.magentaBright(
+          'zwimlo',
+        )} offending key: ${key} replaced by ${newKey}`,
+      )
+  }
 
   return newKey
 }
 
 // prepare json ids and fields to comply with Gatsby
-const prepareKeys = (objects, verbose) => deepMapKeys(objects, key => getValidKeyName(key, verbose))
+const prepareKeys = (objects, verbose) =>
+  deepMapKeys(objects, key => getValidKeyName(key, verbose))
 
 export default prepareKeys

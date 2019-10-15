@@ -24,7 +24,7 @@
     "url": ""
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "~0.18.0",
     "chalk": "^2.4.1",
     "crypto": "^1.0.1",
     "deep-map-keys": "^1.2.0",

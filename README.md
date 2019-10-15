@@ -1,17 +1,14 @@
 # gatsby-source-zwimlo
-
-Plugin for creating Gatsby content and asset nodes based on zwimlo as a data source. It retrieves data from delivery or preview based on the configuration settings in your gatsby-config.js.
+Plugin for creating [GatsbyJS](https://gatsbyjs.org) content and asset nodes based on [zwimlo](https://zwimlo.io) as a data source. It retrieves data from delivery or preview based on the configuration settings in your gatsby-config.js.
 
 ## Install
+with yarn  
+`yarn add gatsby-source-zwimlo`
 
 with npm  
 `npm install --save gatsby-source-zwimlo`
 
-with yarn  
-`yarn add gatsby-source-zwimlo`
-
-
-## How to use
+## How to use the plugin
 ```javascript
 // In your gatsby-config.js
 module.exports = {
@@ -25,7 +22,7 @@ module.exports = {
         // REQUIRED
         // Add your site ID, which is part of the URI for your requests
         siteId: 'Your zwimlo siteId',
-        // REQUIRED if site is proteced otherwise could be left empty
+        // REQUIRED if site is proteced otherwise could be left empty otherwise OPTIONAL
         //   An empty toke means your site is not procteced thus does not require a token
         //   - deliveryToken reflects your Delivery Access Token
         //   - previewToke reflects your Preview Access Token
@@ -46,5 +43,4 @@ module.exports = {
 ```
 
 ## Queries
-
 The plugin creates two new nodes types zwimloAsset and zwimloContent. Both types could be queried with GraphQL as usual.
