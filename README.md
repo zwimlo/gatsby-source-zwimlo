@@ -44,3 +44,6 @@ module.exports = {
 
 ## Queries
 The plugin creates two new nodes types zwimloAsset and zwimloContent. Both types could be queried with GraphQL as usual.
+
+## Thanks
+For all inspirations and code examples.
