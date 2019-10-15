@@ -21,7 +21,7 @@ jobs:
       - run: npm run build
       - run: npm run release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
 
   publish-npm:
     needs: build
