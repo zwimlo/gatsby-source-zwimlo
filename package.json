@@ -20,6 +20,7 @@
   "author": "Harald T. Wirths <harald@zwimlo.com>",
   "license": "MIT",
   "release": {
+    "repositoryUrl": "https://x-oauth-token@github.com/zwimlo/gatsby-source-zwimlo.git",
     "plugins": [
       "@semantic-release/changelog",
       "@semantic-release/commit-analyzer",
