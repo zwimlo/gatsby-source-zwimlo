@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-zwimlo",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Creates Gatsby nodes based on zwimlo API data",
   "scripts": {
     "build": "babel src --out-dir .",
