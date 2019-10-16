@@ -22,6 +22,7 @@ jobs:
       - run: npm run release
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-npm:
     needs: build
@@ -34,7 +35,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
   #publish-gpr:
   #  needs: build
