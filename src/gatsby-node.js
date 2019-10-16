@@ -5,8 +5,10 @@ import _ from 'lodash'
 import fs from 'fs'
 import fetchData from './fetch'
 
-exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, configOptions) => {
-
+exports.sourceNodes = async (
+  { actions, store, cache, createNodeId, getNode },
+  configOptions,
+) => {
   const { createNode, createNodeField } = actions
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
@@ -16,9 +18,10 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, c
   const apiType = configOptions.preview ? 'preview' : 'content'
 
   // Get an existing token from options for delivery or preview
-  const optionAccessToken = apiType === 'preview' ?
-        configOptions.previewToken :
-        configOptions.deliveryToken
+  const optionAccessToken =
+    apiType === 'preview'
+      ? configOptions.previewToken
+      : configOptions.deliveryToken
 
   // Enhance the token to a parameter if available
   const accessToken = optionAccessToken ? optionAccessToken : ''
@@ -33,24 +36,42 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, c
   for (let type in objectTypes) {
     const objectType = objectTypes[type]
 
-    {verbose && console.log(`${chalk.magenta('zwimlo')} current objectType: ${objectType}`)}
+    {
+      verbose &&
+        console.log(
+          `${chalk.magenta('zwimlo')} current objectType: ${objectType}`,
+        )
+    }
 
     const { documents } = await fetchData({
       siteId,
       apiType,
       objectType,
       accessToken,
-      verbose
+      verbose,
     })
 
     await Promise.all(
-
       documents.map(async node => {
         const nodeId = createNodeId(`zwimlo-${objectType}-${node.zwimlo_id}`)
         const nodeType = `Zwimlo${_.upperFirst(objectType)}`
 
-        {verbose && console.log(`${chalk.magentaBright('zwimlo')} creating ${objectType} with ID: ${nodeId}`)}
-        {verbose && console.log(`${chalk.magentaBright('zwimlo')} and gatsby node type: ${nodeType}`)}
+        {
+          verbose &&
+            console.log(
+              `${chalk.magentaBright(
+                'zwimlo',
+              )} creating ${objectType} with ID: ${nodeId}`,
+            )
+        }
+        {
+          verbose &&
+            console.log(
+              `${chalk.magentaBright(
+                'zwimlo',
+              )} and gatsby node type: ${nodeType}`,
+            )
+        }
 
         const nodeContent = JSON.stringify(node)
         const nodeData = Object.assign({}, node, {
@@ -67,13 +88,18 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, c
             contentDigest: crypto
               .createHash('md5')
               .update(nodeContent)
-              .digest('hex')
+              .digest('hex'),
           },
         })
 
         createNode(nodeData)
 
-        {verbose && console.log(`${chalk.magentaBright('zwimlo')} nodeData ID: ${nodeData.id}`)}
+        {
+          verbose &&
+            console.log(
+              `${chalk.magentaBright('zwimlo')} nodeData ID: ${nodeData.id}`,
+            )
+        }
 
         const createdNode = getNode(nodeData.id)
 
@@ -88,8 +114,20 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, c
 
           console.log('createdNode', createdNode.zwimlo_id)
 
-          {verbose && console.log(`${chalk.magentaBright('zwimlo')} createdNode ID: ${createdNode.id}`)}
-          {verbose && console.log(`${chalk.magentaBright('zwimlo')} fileNode ID: ${fileNode.id}`)}
+          {
+            verbose &&
+              console.log(
+                `${chalk.magentaBright('zwimlo')} createdNode ID: ${
+                  createdNode.id
+                }`,
+              )
+          }
+          {
+            verbose &&
+              console.log(
+                `${chalk.magentaBright('zwimlo')} fileNode ID: ${fileNode.id}`,
+              )
+          }
 
           createdNode.relativePath___NODE = fileNode.id
 
@@ -99,11 +137,16 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId, getNode }, c
             value: createdNode.zwimlo_id,
           })
 
-          {verbose && console.log(`${chalk.magentaBright('zwimlo')} ${objectType} node created`)}
+          {
+            verbose &&
+              console.log(
+                `${chalk.magentaBright('zwimlo')} ${objectType} node created`,
+              )
+          }
         }
       }),
-      fs.writeFile('test.json', documents)
-    )  
+      fs.writeFile('test.json', documents),
+    )
   }
   return
 }

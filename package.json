@@ -3,14 +3,14 @@
   "version": "0.3.2",
   "description": "Creates Gatsby nodes based on zwimlo API data",
   "scripts": {
-    "prepublish": "npm run build",
     "build": "babel src --out-dir .",
     "format": "prettier --trailing-comma all --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "babel -w src --out-dir ."
+    "test": "mocha --require @babel/register 'src/**/**spec.js'",
+    "watch": "babel -w src --out-dir .",
+    "release": "npx semantic-release --debug"
   },
   "main": "index.js",
-  "homepage": "https://www.zwimlo.com",
+  "homepage": "https://zwimlo.io",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -19,12 +19,29 @@
   ],
   "author": "Harald T. Wirths <harald@zwimlo.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
+  "release": {
+    "repositoryUrl": "https://github.com/zwimlo/gatsby-source-zwimlo.git",
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      ["@semantic-release/git", {
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "package-lock.json"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }]
+    ]
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "axios": "^0.19.0",
     "chalk": "^2.4.1",
     "crypto": "^1.0.1",
     "deep-map-keys": "^1.2.0",
@@ -34,12 +51,22 @@
     "pluralize": "^7.0.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.6.2",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/github": "^5.5.3",
+    "@semantic-release/npm": "^5.2.0",
+    "@semantic-release/release-notes-generator": "^7.3.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "prettier": "^1.14.3"
+    "husky": "^3.0.9",
+    "mocha": "^6.2.1",
+    "prettier": "^1.14.3",
+    "semantic-release": "16.0.0-beta.26"
   }
 }
