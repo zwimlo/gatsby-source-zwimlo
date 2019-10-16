@@ -182,7 +182,11 @@ exports.sourceNodes = function () {
                         return function (_x3) {
                           return _ref4.apply(this, arguments);
                         };
-                      }()), _fs2.default.writeFile('test.json', documents));
+                      }()), _fs2.default.writeFile('test.json', documents, function (error) {
+                        {
+                          error && console.log(error);
+                        }
+                      }));
 
                     case 8:
                     case 'end':
