@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/zwimlo/gatsby-source-zwimlo/compare/v0.4.1...v0.4.2) (2019-10-16)
+
+
+### Bug Fixes
+
+* **deploy:** change gitignore and add js ([#3](https://github.com/zwimlo/gatsby-source-zwimlo/issues/3)) ([152b84c](https://github.com/zwimlo/gatsby-source-zwimlo/commit/152b84c8b3bbf74015333335085d3c13db5caad7))
+
 ## [0.4.1](https://github.com/zwimlo/gatsby-source-zwimlo/compare/v0.4.0...v0.4.1) (2019-10-16)
 
 
