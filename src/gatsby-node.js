@@ -145,7 +145,11 @@ exports.sourceNodes = async (
           }
         }
       }),
-      fs.writeFile('test.json', documents),
+      fs.writeFile('test.json', documents, error => {
+        {
+          error && console.log(error)
+        }
+      }),
     )
   }
   return
